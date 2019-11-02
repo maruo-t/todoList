@@ -1,0 +1,5 @@
+<mat-list>
+    <mat-list-item *ngFor="let todo of todoList" [class.completed]="todo.completed">
+        <mat-checkbox [(ngModel)]="todo.completed">{{ todo.title }}</mat-checkbox>
+    </mat-list-item>
+</mat-list>
