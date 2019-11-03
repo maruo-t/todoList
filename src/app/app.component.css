@@ -1,0 +1,14 @@
+
+  .example-sidenav-content {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+  .add-button{
+    font-size: 24px;
+    font: bold;
+  }

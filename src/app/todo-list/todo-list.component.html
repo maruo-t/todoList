@@ -1,5 +1,31 @@
-<mat-list>
-    <mat-list-item *ngFor="let todo of todoList" [class.completed]="todo.completed">
+<!-- 
+<h4>未完了</h4>
+<table mat-table [dataSource]="todoList" class="mat-elevation-z8">
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>タイトル</th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox [(ngModel)]="element.completed">{{ element.title }}</mat-checkbox>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="completed">
+        <th mat-header-cell *matHeaderCellDef>完了済み</th>
+        <td mat-cell *matCellDef="let element">{{ element.completed }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="colum"></tr>
+    <tr mat-row *matRowDef="let row; columns: colum;"></tr>
+</table> 
+-->
+
+<h4 style="margin-top: 0px;">未完了</h4>
+<ng-container *ngFor="let todo of todoList">
+    <mat-card *ngIf="!todo.completed" class="mat-elevation-z8" [class.completed]="todo.completed" style="margin: 2px;">
         <mat-checkbox [(ngModel)]="todo.completed">{{ todo.title }}</mat-checkbox>
-    </mat-list-item>
-</mat-list>
+    </mat-card>
+</ng-container>
+<h4>完了済み</h4>
+<ng-container *ngFor="let todo of todoList">
+    <mat-card *ngIf="todo.completed" class="mat-elevation-z8" [class.completed]="todo.completed" style="margin: 2px;">
+        <mat-checkbox [(ngModel)]="todo.completed">{{ todo.title }}</mat-checkbox>
+    </mat-card>
+</ng-container>

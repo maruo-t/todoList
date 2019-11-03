@@ -13,8 +13,24 @@
   <mat-toolbar color="primary">
     <span>{{title}}</span>
   </mat-toolbar>
-  <app-todo-form (submit)="addTodo($event)"></app-todo-form>
-  <app-todo-list [todoList]="todoList"></app-todo-list>
+
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+      <app-todo-form (submit)="addTodo($event)"></app-todo-form>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <app-todo-form (submit)="addTodo($event)"></app-todo-form>
+      <mat-divider style="border-color: #F5F5F5"></mat-divider>
+      <div style="text-align: right;margin-right: 30px;">
+          <button mat-mini-fab color="warn" (click)="drawer.toggle()" class="add-button">＋</button>  
+      </div>
+      <app-todo-list [todoList]="todoList"></app-todo-list>
+    </div>
+  </mat-drawer-container>
+
+  <!-- <app-todo-form (submit)="addTodo($event)"></app-todo-form>
+  <app-todo-list [todoList]="todoList"></app-todo-list> -->
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
